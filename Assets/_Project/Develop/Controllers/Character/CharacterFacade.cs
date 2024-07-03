@@ -6,6 +6,7 @@ public abstract class CharacterFacade : MonoBehaviour
     protected CharacterInputController _characterInput;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float rotateSpeed;
+    protected bool _cursorIsToggled;
 
     protected void Awake()
     {
@@ -24,14 +25,8 @@ public abstract class CharacterFacade : MonoBehaviour
         _characterInput.UnsubscribeMovingMethods();
     }
 
-    public virtual void LockCursor()
-    {
-        _characterInput.LockCursor();
-    }
-    public virtual void UnlockCursor()
-    {
-        _characterInput.UnlockCursor();
-    }
+
+
 
     public abstract void Move();
 

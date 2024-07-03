@@ -229,6 +229,8 @@ GameObject:
   - component: {fileID: 750290448}
   - component: {fileID: 750290447}
   - component: {fileID: 750290446}
+  - component: {fileID: 750290451}
+  - component: {fileID: 750290450}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -319,6 +321,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &750290450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750290445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445615fca98187741a796e39e419d320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &750290451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750290445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eb0a7bcc10b474ab8a5f8b23c98bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &819571051
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +683,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1510123977
 BoxCollider:

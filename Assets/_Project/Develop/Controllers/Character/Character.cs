@@ -5,7 +5,6 @@ public class Character : CharacterFacade
     public override void Move()
     {
         var movingDirection = _characterInput.ReadMovement();
-        Debug.Log(movingDirection.ToString());
         _characterMovement.Move(movingDirection, gameObject.transform, moveSpeed);
     }
 
@@ -14,4 +13,6 @@ public class Character : CharacterFacade
         _characterMovement.Rotate(_characterInput.RotateDirection, gameObject.transform, rotateSpeed);
     }
 
+
+    
 }

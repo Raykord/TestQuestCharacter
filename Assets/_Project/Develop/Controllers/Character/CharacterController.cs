@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour
     protected void Update()
     {
         _character.Rotate();
+
     }
 
     protected void FixedUpdate()
