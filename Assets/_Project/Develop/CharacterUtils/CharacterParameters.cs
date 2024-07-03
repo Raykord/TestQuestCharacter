@@ -5,10 +5,12 @@ using UnityEngine;
 public class CharacterParameters : ScriptableObject
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _rotateSpeed;
     [SerializeField] private string _name;
     [SerializeField] private GameObject _model;
 
     public float Speed => _speed;
+    public float RotateSpeed => _rotateSpeed;
     public string Name => _name;
     public GameObject Model => _model;
 }

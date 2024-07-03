@@ -4,7 +4,6 @@ public class GameplayView : GameplayViewBase
 {
     public override void ToggleCursor()
     {
-        Debug.Log("afsafasfd");
         if (_isToggled)
         {
             Cursor.visible = true;

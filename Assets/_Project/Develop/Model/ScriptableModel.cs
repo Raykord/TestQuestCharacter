@@ -16,9 +16,9 @@ public class ScriptableModel : ScriptableObject
         get { return _characters.Count; }
     }
 
-    public GameObject GetCharacter(int characterType)
+    public CharacterParameters GetCharacter(int characterType)
     {
-        return _characters[characterType].Model;
+        return _characters[characterType];
     }
 
     public void SetSelectedCharacter(int characterIndex)

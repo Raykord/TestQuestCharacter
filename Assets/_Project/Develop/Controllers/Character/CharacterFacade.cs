@@ -2,10 +2,9 @@ using UnityEngine;
 
 public abstract class CharacterFacade : MonoBehaviour 
 {
-    protected IControlable _characterMovement;
-    protected CharacterInputController _characterInput;
-    [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float rotateSpeed;
+    protected MoveController _characterMovement;
+    protected CharacterInputControllerBase _characterInput;
+    [SerializeField] protected CharacterParameters characterParameters;
     protected bool _cursorIsToggled;
 
     protected void Awake()

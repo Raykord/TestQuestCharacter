@@ -4,7 +4,7 @@ using UnityEngine;
 public class MenuView : MonoBehaviour
 {
     [SerializeField] private List<GameObject> charactersOnScene;
-
+    [SerializeField] private TMPro.TextMeshProUGUI statsText;
    
 
     public void ShowCharacter(int indexOfCharacter)
@@ -16,6 +16,11 @@ public class MenuView : MonoBehaviour
     public void HideCharacter(int indexOfCharacter)
     {
         charactersOnScene[indexOfCharacter].SetActive(false);
+    }
+
+    public void ShowStats(CharacterParameters stats)
+    {
+        statsText.text = $"Name: {stats.Name}\nSpeed: {stats.Speed}";
     }
 
 }

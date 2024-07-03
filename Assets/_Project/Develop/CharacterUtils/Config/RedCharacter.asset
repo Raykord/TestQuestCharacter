@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: RedCharacter
   m_EditorClassIdentifier: 
   _speed: 10
+  _rotateSpeed: 10
   _name: Valera
-  _model: {fileID: 2057952253841663163, guid: db484e1c9010bed469baeddf7e520b79, type: 3}
+  _model: {fileID: 335408781239157339, guid: f799c03d76d624f4ba075ce7e7a368cc, type: 3}

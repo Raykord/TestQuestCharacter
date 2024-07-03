@@ -9,7 +9,8 @@ public class MenuController : MonoBehaviour
     private int selectedCharacter = 0;
     private void Start()
     {
-        _view.ShowCharacter(selectedCharacter); 
+        _view.ShowCharacter(selectedCharacter);
+        _view.ShowStats(_model.GetCharacter(selectedCharacter));
     }
 
     public void NextCharacter()
@@ -21,6 +22,7 @@ public class MenuController : MonoBehaviour
             selectedCharacter = 0;
         }
         _view.ShowCharacter(selectedCharacter);
+        _view.ShowStats(_model.GetCharacter(selectedCharacter));
     }
 
     public void PrevCharacter()
@@ -32,6 +34,7 @@ public class MenuController : MonoBehaviour
             selectedCharacter = _model.CharactersCount - 1;
         }
         _view.ShowCharacter(selectedCharacter);
+        _view.ShowStats(_model.GetCharacter(selectedCharacter));
     }
 
     public void SelectCharacter()

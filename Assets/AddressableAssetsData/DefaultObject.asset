@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531cf89f15221f14abe91b5e96b34d2a, type: 3}
-  m_Name: BlueCharacter
+  m_Script: {fileID: 11500000, guid: 3a189bb168d8d90478a09ea08c2f3d72, type: 3}
+  m_Name: DefaultObject
   m_EditorClassIdentifier: 
-  _speed: 20
-  _rotateSpeed: 20
-  _name: Sanich
-  _model: {fileID: 8372674521624634310, guid: 4ba72ff94fb6c2144bbfe8e283fb77f7, type: 3}
+  m_AddressableAssetSettingsGuid: 3bcc8dc7378e1624ea8b61a266a63025
