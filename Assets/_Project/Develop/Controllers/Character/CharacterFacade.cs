@@ -4,7 +4,8 @@ public abstract class CharacterFacade : MonoBehaviour
 {
     protected IControlable _characterMovement;
     protected CharacterInputController _characterInput;
-
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float rotateSpeed;
 
     protected void Awake()
     {
@@ -23,10 +24,17 @@ public abstract class CharacterFacade : MonoBehaviour
         _characterInput.UnsubscribeMovingMethods();
     }
 
-    
+    public virtual void LockCursor()
+    {
+        _characterInput.LockCursor();
+    }
+    public virtual void UnlockCursor()
+    {
+        _characterInput.UnlockCursor();
+    }
 
-    protected abstract void Move();
+    public abstract void Move();
 
-    protected abstract void Rotate();
+    public abstract void Rotate();
    
 }

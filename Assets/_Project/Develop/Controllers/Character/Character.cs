@@ -2,29 +2,16 @@ using UnityEngine;
 
 public class Character : CharacterFacade
 {
-    protected override void Move()
+    public override void Move()
     {
         var movingDirection = _characterInput.ReadMovement();
         Debug.Log(movingDirection.ToString());
-        _characterMovement.Move(movingDirection, gameObject.transform);
+        _characterMovement.Move(movingDirection, gameObject.transform, moveSpeed);
     }
 
-    protected override void Rotate()
+    public override void Rotate()
     {
-        _characterMovement.Rotate(_characterInput.RotateDirection, gameObject.transform);
+        _characterMovement.Rotate(_characterInput.RotateDirection, gameObject.transform, rotateSpeed);
     }
 
-   
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        Rotate();
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-    }
 }
