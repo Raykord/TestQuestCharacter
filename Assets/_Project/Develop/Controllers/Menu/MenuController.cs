@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour
     {
         _view.HideCharacter(selectedCharacter);
         selectedCharacter--;
-        if (selectedCharacter <= 0)
+        if (selectedCharacter < 0)
         {
             selectedCharacter = _model.CharactersCount - 1;
         }
