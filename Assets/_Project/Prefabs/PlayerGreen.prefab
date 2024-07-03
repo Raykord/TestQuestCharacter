@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 5674984521553907642}
   - component: {fileID: 7261521422806975676}
   - component: {fileID: 364183845247052291}
-  - component: {fileID: 5488478743102024203}
   - component: {fileID: 341358088848273209}
   m_Layer: 0
   m_Name: PlayerGreen
@@ -250,19 +249,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5488478743102024203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765643719293421735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9a83893afd76a42a87abd1e6c531c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterParameters: {fileID: 11400000, guid: bcb700eb3a93fb84286a660af952a6dd, type: 2}
 --- !u!114 &341358088848273209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +261,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddac5a0fbfac2d14f9f91fdf36fff66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parameters: {fileID: 11400000, guid: bcb700eb3a93fb84286a660af952a6dd, type: 2}

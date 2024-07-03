@@ -1,25 +1,29 @@
 using UnityEngine;
 
-public abstract class CharacterFacade : MonoBehaviour 
+public abstract class CharacterFacade 
 {
     protected MoveController _characterMovement;
     protected CharacterInputControllerBase _characterInput;
-    [SerializeField] protected CharacterParameters characterParameters;
+    protected CharacterParameters _characterParameters;
     protected bool _cursorIsToggled;
+    
 
-    protected void Awake()
+    public CharacterFacade(Rigidbody rigidbody, CharacterParameters parameters)
     {
-        _characterMovement = new CharacterMovementController(gameObject.GetComponent<Rigidbody>());
+        _characterMovement = new CharacterMovementController(rigidbody);
         _characterInput = new CharacterInputController();
+        _characterParameters = parameters;
     }
 
-    protected virtual void OnEnable()
+   
+
+    public virtual void SubMethods()
     {
         _characterInput.SubscribeMovingMethods();
     }
 
 
-    protected virtual void OnDisable()
+    public virtual void UnsubMethods()
     {
         _characterInput.UnsubscribeMovingMethods();
     }

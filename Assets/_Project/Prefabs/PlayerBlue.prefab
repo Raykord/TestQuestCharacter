@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 8706927745457206702}
   - component: {fileID: 5104001509776841227}
   - component: {fileID: 7678458992848486527}
-  - component: {fileID: 9037136627222038597}
   - component: {fileID: 2615688075340498492}
   m_Layer: 0
   m_Name: PlayerBlue
@@ -250,19 +249,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &9037136627222038597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8372674521624634310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9a83893afd76a42a87abd1e6c531c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterParameters: {fileID: 11400000, guid: 16a56e27315e796419599e0a6eb34aaa, type: 2}
 --- !u!114 &2615688075340498492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +261,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddac5a0fbfac2d14f9f91fdf36fff66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parameters: {fileID: 11400000, guid: 16a56e27315e796419599e0a6eb34aaa, type: 2}

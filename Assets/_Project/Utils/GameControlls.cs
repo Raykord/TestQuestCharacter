@@ -28,7 +28,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
             ""id"": ""75ca2e87-9936-4e17-a241-cf917c78bd2a"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""MovementWASD"",
                     ""type"": ""Value"",
                     ""id"": ""a0279718-ea2d-457d-9742-6ba7399711f1"",
                     ""expectedControlType"": ""Vector3"",
@@ -53,6 +53,15 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""bf9e39b2-8389-48ea-a48d-b13a85469221"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -63,7 +72,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MovementWASD"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -74,7 +83,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MovementWASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -85,7 +94,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MovementWASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -96,7 +105,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MovementWASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -107,7 +116,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MovementWASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -132,6 +141,61 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""action"": ""ESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""3D Vector"",
+                    ""id"": ""7413e24f-8f0a-480f-95ba-46ebfd241347"",
+                    ""path"": ""3DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c65dc3bc-a740-4cd2-a081-0abfb9bb582f"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9e029e75-250a-49c3-9456-70244893d97d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""forward"",
+                    ""id"": ""f74a973e-24cc-4928-9d51-6a540ab73883"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""backward"",
+                    ""id"": ""00b5e07b-8b71-41ba-98aa-017075ffe5f2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -241,9 +305,10 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_MovementWASD = m_Gameplay.FindAction("MovementWASD", throwIfNotFound: true);
         m_Gameplay_CameraRotating = m_Gameplay.FindAction("CameraRotating", throwIfNotFound: true);
         m_Gameplay_ESC = m_Gameplay.FindAction("ESC", throwIfNotFound: true);
+        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_NextCharacter = m_Menu.FindAction("NextCharacter", throwIfNotFound: true);
@@ -310,16 +375,18 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-    private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_MovementWASD;
     private readonly InputAction m_Gameplay_CameraRotating;
     private readonly InputAction m_Gameplay_ESC;
+    private readonly InputAction m_Gameplay_Movement;
     public struct GameplayActions
     {
         private @GameControlls m_Wrapper;
         public GameplayActions(@GameControlls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @MovementWASD => m_Wrapper.m_Gameplay_MovementWASD;
         public InputAction @CameraRotating => m_Wrapper.m_Gameplay_CameraRotating;
         public InputAction @ESC => m_Wrapper.m_Gameplay_ESC;
+        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -329,28 +396,34 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
+            @MovementWASD.started += instance.OnMovementWASD;
+            @MovementWASD.performed += instance.OnMovementWASD;
+            @MovementWASD.canceled += instance.OnMovementWASD;
             @CameraRotating.started += instance.OnCameraRotating;
             @CameraRotating.performed += instance.OnCameraRotating;
             @CameraRotating.canceled += instance.OnCameraRotating;
             @ESC.started += instance.OnESC;
             @ESC.performed += instance.OnESC;
             @ESC.canceled += instance.OnESC;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
         {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
+            @MovementWASD.started -= instance.OnMovementWASD;
+            @MovementWASD.performed -= instance.OnMovementWASD;
+            @MovementWASD.canceled -= instance.OnMovementWASD;
             @CameraRotating.started -= instance.OnCameraRotating;
             @CameraRotating.performed -= instance.OnCameraRotating;
             @CameraRotating.canceled -= instance.OnCameraRotating;
             @ESC.started -= instance.OnESC;
             @ESC.performed -= instance.OnESC;
             @ESC.canceled -= instance.OnESC;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -432,9 +505,10 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
     public MenuActions @Menu => new MenuActions(this);
     public interface IGameplayActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMovementWASD(InputAction.CallbackContext context);
         void OnCameraRotating(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

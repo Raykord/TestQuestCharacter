@@ -4,12 +4,23 @@ public class CharacterController : MonoBehaviour
 { 
     private Character _character;
 
+    [SerializeField]private CharacterParameters parameters;
 
-    protected void Start()
+
+    protected void Awake()
     {
-        _character = GetComponent<Character>();
+        _character = new Character(GetComponent<Rigidbody>(), parameters, gameObject);
     }
 
+    private void OnEnable()
+    {
+        _character.SubMethods();
+    }
+
+    private void OnDisable()
+    {
+        _character.UnsubMethods();
+    }
 
     protected void Update()
     {
