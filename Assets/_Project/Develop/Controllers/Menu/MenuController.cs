@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class MenuController : MonoBehaviour
+public class MenuController : MenuControllerBase
 {
-    [SerializeField] protected MenuView _view;
+    [SerializeField] protected MenuViewBase _view;
     [SerializeField] private ScriptableModel _model;
     private int selectedCharacter = 0;
     private void Start()
@@ -11,7 +11,7 @@ public class MenuController : MonoBehaviour
         _view.ShowStats(_model.GetCharacter(selectedCharacter));
     }
 
-    public void NextCharacter()
+    public override void NextCharacter()
     {
         _view.HideCharacter(selectedCharacter);
         selectedCharacter++;
@@ -23,7 +23,7 @@ public class MenuController : MonoBehaviour
         _view.ShowStats(_model.GetCharacter(selectedCharacter));
     }
 
-    public void PrevCharacter()
+    public override void PrevCharacter()
     {
         _view.HideCharacter(selectedCharacter);
         selectedCharacter--;
@@ -35,7 +35,7 @@ public class MenuController : MonoBehaviour
         _view.ShowStats(_model.GetCharacter(selectedCharacter));
     }
 
-    public void SelectCharacter()
+    public override void SelectCharacter()
     {
         _model.SelectedCharacter = selectedCharacter;
     }

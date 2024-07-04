@@ -15,7 +15,7 @@ public class CharacterLoader : BaseLoader
         return _loadedObject;
     }
 
-    public void UnliadCharacter()
+    public void UnloadCharacter()
     {
         UnloadAsset();
     }
