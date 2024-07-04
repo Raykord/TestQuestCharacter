@@ -1,23 +1,23 @@
 using UnityEngine;
 
-public abstract class CharacterInputDecorator /*: CharacterFacade*/
+public abstract class CharacterInputDecorator : CharacterFacade
 {
-    //private CharacterFacade _character;
+    protected CharacterFacade _character;
 
-    //public CharacterInputDecorator(CharacterFacade character)
-    //{
-    //    _character = character;
-    //}
+    protected CharacterInputDecorator(Rigidbody rigidbody, CharacterParameters parameters, CharacterFacade character) : base(rigidbody, parameters)
+    {
+        _character = character;
+    }
 
-    //public override void Move()
-    //{
-    //    _character.Move();
-    //}
+    public override void Move(Vector3 movingDirection)
+    {
+        _character.Move(movingDirection);
+    }
 
-    //public override void Rotate()
-    //{
-    //    _character.Rotate();
-    //}
+    public override void Rotate()
+    {
+        _character.Rotate();
+    }
 
-    //public abstract void MoveInternal();
+    
 }

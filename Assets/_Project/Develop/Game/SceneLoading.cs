@@ -24,8 +24,8 @@ public class SceneLoading : MonoBehaviour
     }
 
     private IEnumerator LoadScene(string sceneName)
-    {    
-
+    {
+        Debug.Log("Loading...");
         AsyncOperation loadConcreteSceen = SceneManager.LoadSceneAsync(sceneName);
         loadConcreteSceen.allowSceneActivation = false;
 

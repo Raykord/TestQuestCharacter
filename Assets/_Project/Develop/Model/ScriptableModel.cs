@@ -6,9 +6,21 @@ public class ScriptableModel : ScriptableObject
 {
 
     [SerializeField] private List<CharacterParameters> _characters;
-    private int _selectedCharacter;
+    [SerializeField] private static int _selectedCharacter;
 
-    public int SelectedCharacter => _selectedCharacter;
+    public int SelectedCharacter
+    {
+        get { return _selectedCharacter; }
+        set {
+            if (value < 0 || value >= _characters.Count)
+            {
+                Debug.Log("Некоректный индекс персонажа");
+                _selectedCharacter = 0;
+                return;
+            }
+            _selectedCharacter = value;
+        }
+    }
 
 
     public int CharactersCount
@@ -21,14 +33,14 @@ public class ScriptableModel : ScriptableObject
         return _characters[characterType];
     }
 
-    public void SetSelectedCharacter(int characterIndex)
-    {
-        if (characterIndex < 0 ||  characterIndex >= _characters.Count)
-        {
-            Debug.Log("Некоректный индекс персонажа");
-            _selectedCharacter = 0;
-            return;
-        }
-        _selectedCharacter = characterIndex;
-    }
+    //public void SetSelectedCharacter(int characterIndex)
+    //{
+    //    if (characterIndex < 0 ||  characterIndex >= _characters.Count)
+    //    {
+    //        Debug.Log("Некоректный индекс персонажа");
+    //        _selectedCharacter = 0;
+    //        return;
+    //    }
+    //    _selectedCharacter = characterIndex;
+    //}
 }

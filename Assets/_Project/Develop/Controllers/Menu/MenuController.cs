@@ -37,6 +37,6 @@ public class MenuController : MonoBehaviour
 
     public void SelectCharacter()
     {
-        _model.SetSelectedCharacter(selectedCharacter);
+        _model.SelectedCharacter = selectedCharacter;
     }
 }

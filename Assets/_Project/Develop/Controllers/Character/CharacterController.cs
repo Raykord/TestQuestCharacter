@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 { 
-    private Character _character;
+    private CharacterFacade _character;
 
     [SerializeField]private CharacterParameters parameters;
 
@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour
     protected void Awake()
     {
         _character = new Character(GetComponent<Rigidbody>(), parameters, gameObject);
+        _character = new CharacterInputFromArrowsToWASD(GetComponent<Rigidbody>(), parameters, gameObject, _character);
     }
 
     private void OnEnable()
@@ -30,6 +31,7 @@ public class CharacterController : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        _character.Move();
+        var direction = _character.CalculateDirecrion();
+        _character.Move(direction);
     }
 }

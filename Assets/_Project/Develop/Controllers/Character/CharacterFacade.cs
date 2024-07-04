@@ -6,7 +6,7 @@ public abstract class CharacterFacade
     protected CharacterInputControllerBase _characterInput;
     protected CharacterParameters _characterParameters;
     protected bool _cursorIsToggled;
-    
+
 
     public CharacterFacade(Rigidbody rigidbody, CharacterParameters parameters)
     {
@@ -15,7 +15,7 @@ public abstract class CharacterFacade
         _characterParameters = parameters;
     }
 
-   
+
 
     public virtual void SubMethods()
     {
@@ -28,10 +28,16 @@ public abstract class CharacterFacade
         _characterInput.UnsubscribeMovingMethods();
     }
 
+    public virtual Vector3 CalculateDirecrion()
+    {
+        Vector3 movingDirection = _characterInput.ReadMovement();
+        return movingDirection;
+    }
 
 
 
-    public abstract void Move();
+    public abstract void Move(Vector3 movingDirection);
+    
 
     public abstract void Rotate();
    

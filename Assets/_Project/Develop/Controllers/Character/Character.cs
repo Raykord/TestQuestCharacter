@@ -9,9 +9,17 @@ public class Character : CharacterFacade
         _gameObject = gameObject;
     }
 
-    public override void Move()
+    //public Character(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject) 
+    //{
+    //    _characterMovement = new CharacterMovementController(rigidbody);
+    //    _characterInput = new CharacterInputController();
+    //    _characterParameters = parameters;
+    //    _gameObject = gameObject;
+    //}
+
+    public override void Move(Vector3 movingDirection)
     {
-        var movingDirection = _characterInput.ReadMovement();
+        Debug.Log(movingDirection.ToString());
         _characterMovement.Move(movingDirection, _gameObject.transform, _characterParameters.Speed);
     }
 
