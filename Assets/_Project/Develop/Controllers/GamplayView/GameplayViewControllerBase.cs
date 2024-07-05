@@ -10,7 +10,7 @@ public abstract class GameplayViewControllerBase : MonoBehaviour
     {
         _input = new GameControlls();
         _input.Gameplay.Enable();
-        _view = GetComponent<GameplayViewBase>();
+        _view = new GameplayView();
     }
 
     protected abstract void GetMouseControll(InputAction.CallbackContext context);

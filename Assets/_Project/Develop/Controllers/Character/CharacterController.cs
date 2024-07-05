@@ -9,8 +9,8 @@ public class CharacterController : MonoBehaviour
 
     protected void Awake()
     {
-        _character = new Character(GetComponent<Rigidbody>(), parameters, gameObject);
-        _character = new CharacterInputFromArrowsToWASD(GetComponent<Rigidbody>(), parameters, gameObject, _character);
+        _character = new Character(GetComponent<Rigidbody>(), parameters, gameObject, GetComponent<Health>());
+        _character = new CharacterInputFromArrowsToWASD(GetComponent<Rigidbody>(), parameters, gameObject, _character, GetComponent<Health>());
     }
 
     private void OnEnable()

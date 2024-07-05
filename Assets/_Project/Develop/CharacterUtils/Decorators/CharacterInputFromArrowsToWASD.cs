@@ -4,7 +4,7 @@ public class CharacterInputFromArrowsToWASD : CharacterInputDecorator
 {
     GameObject _gameObject;
 
-    public CharacterInputFromArrowsToWASD(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject, CharacterFacade character) : base(rigidbody, parameters, character)
+    public CharacterInputFromArrowsToWASD(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject, CharacterFacade character, Health health) : base(rigidbody, parameters, character, health)
     {
         _characterInput = new CharacterInputWASD();
         _gameObject = gameObject;

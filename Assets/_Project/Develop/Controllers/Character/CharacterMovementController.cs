@@ -15,9 +15,8 @@ public class CharacterMovementController : MoveController
 
     public override void Move(Vector3 direction, Transform transform, float moveSpeed)
     {
-        Vector3 movingDirection = transform.TransformDirection(direction * moveSpeed * Time.fixedDeltaTime);
-        movingDirection = movingDirection.normalized;
-        _rigidbody.MovePosition(transform.position + movingDirection);
+        Vector3 movingDirection = transform.TransformDirection(direction.normalized * moveSpeed * Time.fixedDeltaTime);
+        _rigidbody.velocity = movingDirection;
     }
 
     public override void Rotate(Vector2 axis, Transform transform, float rotateSpeed)

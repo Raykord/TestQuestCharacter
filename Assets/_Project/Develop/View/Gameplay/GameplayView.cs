@@ -17,4 +17,6 @@ public class GameplayView : GameplayViewBase
             _isToggled = true;
         }
     }
+
+    
 }

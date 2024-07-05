@@ -5,14 +5,17 @@ public abstract class CharacterFacade
     protected MoveController _characterMovement;
     protected CharacterInputControllerBase _characterInput;
     protected CharacterParameters _characterParameters;
+    protected Health _healthSystem;
     protected bool _cursorIsToggled;
 
 
-    public CharacterFacade(Rigidbody rigidbody, CharacterParameters parameters)
+    public CharacterFacade(Rigidbody rigidbody, CharacterParameters parameters, Health health)
     {
         _characterMovement = new CharacterMovementController(rigidbody);
         _characterInput = new CharacterInputController();
         _characterParameters = parameters;
+        _healthSystem = health;
+        _healthSystem.SetMaxHealth(_characterParameters);
     }
 
 

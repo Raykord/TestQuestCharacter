@@ -4,18 +4,12 @@ public class Character : CharacterFacade
 {
     private GameObject _gameObject;
 
-    public Character(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject) : base(rigidbody, parameters)
+    public Character(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject, Health health) : base(rigidbody, parameters, health)
     {
         _gameObject = gameObject;
     }
 
-    //public Character(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject) 
-    //{
-    //    _characterMovement = new CharacterMovementController(rigidbody);
-    //    _characterInput = new CharacterInputController();
-    //    _characterParameters = parameters;
-    //    _gameObject = gameObject;
-    //}
+    
 
     public override void Move(Vector3 movingDirection)
     {

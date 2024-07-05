@@ -4,7 +4,7 @@ public abstract class CharacterInputDecorator : CharacterFacade
 {
     protected CharacterFacade _character;
 
-    protected CharacterInputDecorator(Rigidbody rigidbody, CharacterParameters parameters, CharacterFacade character) : base(rigidbody, parameters)
+    protected CharacterInputDecorator(Rigidbody rigidbody, CharacterParameters parameters, CharacterFacade character, Health health) : base(rigidbody, parameters, health)
     {
         _character = character;
     }

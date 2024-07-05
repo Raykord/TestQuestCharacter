@@ -62,6 +62,15 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""2d1cfae0-f6a3-40e4-a846-edf47ba9ea97"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +205,17 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4e4acef-b6c9-4454-a4ee-791ba530b76e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -309,6 +329,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
         m_Gameplay_CameraRotating = m_Gameplay.FindAction("CameraRotating", throwIfNotFound: true);
         m_Gameplay_ESC = m_Gameplay.FindAction("ESC", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_NextCharacter = m_Menu.FindAction("NextCharacter", throwIfNotFound: true);
@@ -379,6 +400,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_CameraRotating;
     private readonly InputAction m_Gameplay_ESC;
     private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_Interact;
     public struct GameplayActions
     {
         private @GameControlls m_Wrapper;
@@ -387,6 +409,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
         public InputAction @CameraRotating => m_Wrapper.m_Gameplay_CameraRotating;
         public InputAction @ESC => m_Wrapper.m_Gameplay_ESC;
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -408,6 +431,9 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -424,6 +450,9 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -509,6 +538,7 @@ public partial class @GameControlls: IInputActionCollection2, IDisposable
         void OnCameraRotating(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
