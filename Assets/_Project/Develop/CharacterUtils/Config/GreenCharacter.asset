@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531cf89f15221f14abe91b5e96b34d2a, type: 3}
   m_Name: GreenCharacter
   m_EditorClassIdentifier: 
-  _speed: 300
+  _speed: 400
   _rotateSpeed: 5
-  _name: IvanIvanich
+  _name: Ivanich
   _model: {fileID: 1765643719293421735, guid: 4af9f8110a2ae0844b55eed6b1f6646a, type: 3}
   _maxHealth: 100

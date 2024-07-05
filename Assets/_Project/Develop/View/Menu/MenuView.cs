@@ -20,7 +20,7 @@ public class MenuView : MenuViewBase
 
     public override void ShowStats(CharacterParameters stats)
     {
-        statsText.text = $"Name: {stats.Name}\nSpeed: {stats.Speed}";
+        statsText.text = $"Name: {stats.Name}\nSpeed: {stats.Speed}\nHealth: {stats.MaxHealth}";
     }
 
 }

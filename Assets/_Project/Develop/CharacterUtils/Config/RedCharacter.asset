@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531cf89f15221f14abe91b5e96b34d2a, type: 3}
   m_Name: RedCharacter
   m_EditorClassIdentifier: 
-  _speed: 200
+  _speed: 320
   _rotateSpeed: 10
   _name: Valera
   _model: {fileID: 335408781239157339, guid: f799c03d76d624f4ba075ce7e7a368cc, type: 3}
