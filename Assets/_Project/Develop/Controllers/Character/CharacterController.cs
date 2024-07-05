@@ -34,4 +34,14 @@ public class CharacterController : MonoBehaviour
         var direction = _character.CalculateDirecrion();
         _character.Move(direction);
     }
+
+    public void IncreaseHealth(int count)
+    {
+        _character.IncreaseHealth(count);
+    }
+
+    public void DecreaseHealth(int count)
+    {
+        _character.DecreaseHealth(count);
+    }
 }

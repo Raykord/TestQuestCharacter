@@ -18,17 +18,33 @@ public abstract class CharacterFacade
         _healthSystem.SetMaxHealth(_characterParameters);
     }
 
+    public virtual void IncreaseHealth(int count)
+    {
+        _healthSystem.IncreaseHealth(count);
+    }
+
+    public virtual void DecreaseHealth(int count)
+    {
+        _healthSystem.DecreaseHealth(count);
+    }
+
+    public virtual int GetHealth()
+    {
+        return _healthSystem.PlayerHealth;
+    }
 
 
     public virtual void SubMethods()
     {
         _characterInput.SubscribeMovingMethods();
+        
     }
 
 
     public virtual void UnsubMethods()
     {
         _characterInput.UnsubscribeMovingMethods();
+        
     }
 
     public virtual Vector3 CalculateDirecrion()
@@ -43,5 +59,7 @@ public abstract class CharacterFacade
     
 
     public abstract void Rotate();
+
+    
    
 }

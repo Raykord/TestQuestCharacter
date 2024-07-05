@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CharacterInputController : CharacterInputControllerBase
 {
+   
 
     public override Vector3 ReadMovement()
     {
@@ -14,4 +15,6 @@ public class CharacterInputController : CharacterInputControllerBase
     {
         RotateDirection = context.ReadValue<Vector2>();
     }
+
+    
 }

@@ -2,8 +2,10 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour 
 {
-    protected int health;
-    protected int maxHealth;
+    protected int _health;
+    protected int _maxHealth;
+
+    public int PlayerHealth => _health;
 
     public abstract void SetMaxHealth(CharacterParameters parameters);
 

@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameplayViewController : GameplayViewControllerBase
 {
     [SerializeField] GameObject canIteractText;
+    [SerializeField] TextMeshProUGUI healthText;
 
     protected override void GetMouseControll(InputAction.CallbackContext context)
     {
@@ -21,15 +23,17 @@ public class GameplayViewController : GameplayViewControllerBase
     private void OnEnable()
     {
         _input.Gameplay.ESC.performed += GetMouseControll;
-        IteractIventManager.CanIteract += ShowCanIteractText;
-        IteractIventManager.CanNotIteract += HideCanIteractText;
+        InteractEventManager.CanInteract += ShowCanIteractText;
+        InteractEventManager.CanNotInteract += HideCanIteractText;
+        HealthEventManager.OnHealthChanged += OnHealthChanged;
     }
 
     private void OnDisable()
     {
         _input.Gameplay.ESC.performed -= GetMouseControll;
-        IteractIventManager.CanIteract -= ShowCanIteractText;
-        IteractIventManager.CanNotIteract -= HideCanIteractText;
+        InteractEventManager.CanInteract -= ShowCanIteractText;
+        InteractEventManager.CanNotInteract -= HideCanIteractText;
+        HealthEventManager.OnHealthChanged -= OnHealthChanged;
     }
 
 
@@ -43,4 +47,8 @@ public class GameplayViewController : GameplayViewControllerBase
         _view.HideObject(canIteractText);
     }
 
+    public void OnHealthChanged(int health)
+    {
+        healthText.text = health.ToString();
+    }
 }

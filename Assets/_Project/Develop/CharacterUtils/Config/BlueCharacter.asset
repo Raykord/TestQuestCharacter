@@ -16,3 +16,4 @@ MonoBehaviour:
   _rotateSpeed: 20
   _name: Sanich
   _model: {fileID: 8372674521624634310, guid: 4ba72ff94fb6c2144bbfe8e283fb77f7, type: 3}
+  _maxHealth: 50

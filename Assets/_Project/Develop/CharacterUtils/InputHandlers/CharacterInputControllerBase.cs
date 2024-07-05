@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public abstract class CharacterInputControllerBase
 {
     protected GameControlls _input;
-
     public CharacterInputControllerBase()
     {
         _input = new GameControlls();
@@ -20,6 +19,7 @@ public abstract class CharacterInputControllerBase
     public void SubscribeMovingMethods()
     {
         _input.Gameplay.CameraRotating.performed += OnMouseMovinngPerform;
+        
     }
 
     public void UnsubscribeMovingMethods()
@@ -28,4 +28,6 @@ public abstract class CharacterInputControllerBase
     }
 
     protected abstract void OnMouseMovinngPerform(InputAction.CallbackContext context);
+
+    
 }

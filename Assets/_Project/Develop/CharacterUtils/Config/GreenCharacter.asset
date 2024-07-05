@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GreenCharacter
   m_EditorClassIdentifier: 
   _speed: 300
-  _rotateSpeed: 2
+  _rotateSpeed: 5
   _name: IvanIvanich
   _model: {fileID: 1765643719293421735, guid: 4af9f8110a2ae0844b55eed6b1f6646a, type: 3}
+  _maxHealth: 100

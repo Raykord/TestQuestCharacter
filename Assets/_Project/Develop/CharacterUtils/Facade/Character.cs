@@ -7,13 +7,13 @@ public class Character : CharacterFacade
     public Character(Rigidbody rigidbody, CharacterParameters parameters, GameObject gameObject, Health health) : base(rigidbody, parameters, health)
     {
         _gameObject = gameObject;
-    }
+}
 
     
 
     public override void Move(Vector3 movingDirection)
     {
-        Debug.Log(movingDirection.ToString());
+        
         _characterMovement.Move(movingDirection, _gameObject.transform, _characterParameters.Speed);
     }
 

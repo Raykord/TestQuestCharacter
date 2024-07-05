@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Item : MonoBehaviour, IInteractable
+public class Item : InteractableItem
 {
+    [SerializeField] private int effectValue;
+
     private GameControlls _input;
     private PickUpEffect _pickupEffect;
-    private Health _player;
     private Material _material;
 
     private void Awake()
@@ -18,19 +19,10 @@ public class Item : MonoBehaviour, IInteractable
 
     
 
-    public void PickUp()
+    public override void Interacte()
     {
-        _player = FindObjectOfType<CharacterHealthController>();
-        var playerMat = _player.gameObject.GetComponent<Renderer>().material;
-        if (playerMat.color == _material.color)
-        {
-            _pickupEffect.HealEffect(_player, 50);
-        }
-        else
-        {
-            _pickupEffect.DamageEffect(_player, 50);
-        }
-        
+        var _player = FindObjectOfType<CharacterController>();
+        _pickupEffect.ApplyEffect(_player, _material, effectValue);
         Destroy(gameObject);
     }
 
@@ -38,7 +30,8 @@ public class Item : MonoBehaviour, IInteractable
     {
         if (other.CompareTag("Player"))
         {
-            IteractIventManager.SendCanIteract();
+            InteractEventManager.SendCanInteract();
+            InteractEventManager.OnInteract += Interacte;
             _input.Gameplay.Interact.performed += OnTryPickUp;
         }      
     }
@@ -47,19 +40,21 @@ public class Item : MonoBehaviour, IInteractable
     {
         if (other.CompareTag("Player"))
         {
-            IteractIventManager.SendCanNotIteract();
+            InteractEventManager.SendCanNotInteract();
+            InteractEventManager.OnInteract -= Interacte;
             _input.Gameplay.Interact.performed -= OnTryPickUp;
         }          
     }
 
     private void OnTryPickUp(InputAction.CallbackContext context)
     {
-        PickUp();
+        Interacte();
     }
 
     private void OnDestroy()
     {
-        IteractIventManager.SendCanNotIteract();
+        InteractEventManager.SendCanNotInteract();
         _input.Gameplay.Interact.performed -= OnTryPickUp;
+        InteractEventManager.OnInteract -= Interacte;
     }
 }

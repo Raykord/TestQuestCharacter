@@ -16,3 +16,4 @@ MonoBehaviour:
   _rotateSpeed: 10
   _name: Valera
   _model: {fileID: 335408781239157339, guid: f799c03d76d624f4ba075ce7e7a368cc, type: 3}
+  _maxHealth: 200
